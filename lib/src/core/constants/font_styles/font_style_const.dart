@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+
+class FontStyleConst {
+  static final FontStyleConst _instance = FontStyleConst.init();
+  static FontStyleConst get instance => _instance;
+  FontStyleConst.init();
+
+  final TextStyle text14px = const TextStyle(fontSize: 14, fontFamily: 'Inter');
+  final TextStyle text18px = const TextStyle(fontSize: 18, fontFamily: 'Inter');
+  final TextStyle text24px = const TextStyle(fontSize: 24, fontFamily: 'Inter');
+  final TextStyle text32px = const TextStyle(fontSize: 32, fontFamily: 'Inter');
+}
