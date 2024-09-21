@@ -20,9 +20,30 @@ class FirebaseAuthService {
   Future<void> signInWithEmail({required String email, required String password, required VoidCallback onSuccess, required VoidCallback onFailure}) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-      onSuccess;
+      onSuccess();
     } catch (e) {
-      onFailure;
+      onFailure();
+    }
+  }
+
+  Future<void> signInVerificationLink({
+    required VoidCallback onSuccess,
+    required VoidCallback onFailure,
+  }) async {
+    try {
+      ActionCodeSettings act = ActionCodeSettings(
+        url: 'https://breesdemo.page.link/email-link-verification',
+        handleCodeInApp: true,
+        iOSBundleId: 'com.nite.brees',
+        androidPackageName: 'com.nite.brees',
+        androidInstallApp: true,
+        androidMinimumVersion: '12',
+      );
+
+      await FirebaseAuth.instance.sendSignInLinkToEmail(email: FirebaseAuth.instance.currentUser!.email ?? '', actionCodeSettings: act);
+      onSuccess();
+    } catch (e) {
+      onFailure();
     }
   }
 }

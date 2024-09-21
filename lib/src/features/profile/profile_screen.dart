@@ -9,14 +9,16 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TextButton(
-        onPressed: () {
-          FirebaseAuth.instance.signOut();
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const SignUpScreen()), (_) => false);
-        },
-        child: Text(
-          'Sign Out',
-          style: FontStyleConst.instance.text32px,
+      body: Center(
+        child: TextButton(
+          onPressed: () {
+            FirebaseAuth.instance.signOut();
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const SignUpScreen()), (_) => false);
+          },
+          child: Text(
+            'Sign Out',
+            style: FontStyleConst.instance.text32px,
+          ),
         ),
       ),
     );

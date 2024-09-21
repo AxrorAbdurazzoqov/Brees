@@ -11,6 +11,21 @@ class AppVectors {
   //! Icons
   final String eye = 'assets/icons/eye.svg';
   final String eyeOff = 'assets/icons/eye_off.svg';
+  final String bell = 'assets/icons/bell.svg';
+  final String chevronLeft = 'assets/icons/chevron_left.svg';
+  final String chevronRight = 'assets/icons/chevron_right.svg';
+  final String discount = 'assets/icons/discount.svg';
+  final String search = 'assets/icons/search.svg';
+
+  //! Navbar Icons
+  final String home = 'assets/icons/home.svg';
+  final String budget = 'assets/icons/budget.svg';
+  final String insight = 'assets/icons/insight.svg';
+  final String profile = 'assets/icons/profile.svg';
+  final String homeFilled = 'assets/icons/home_filled.svg';
+  final String budgetFilled = 'assets/icons/budget_filled.svg';
+  final String insightFilled = 'assets/icons/insight_filled.svg';
+  final String profileFilled = 'assets/icons/profile_filled.svg';
 
   //! Images
   final String bank = 'assets/images/bank.png';
@@ -20,4 +35,6 @@ class AppVectors {
   final String rocket = 'assets/images/rocket.png';
   final String tick = 'assets/images/tick.png';
   final String user = 'assets/images/user.png';
+  final String pattern = 'assets/images/pattern.png';
+  
 }

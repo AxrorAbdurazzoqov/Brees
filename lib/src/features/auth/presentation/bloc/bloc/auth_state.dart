@@ -1,17 +1,23 @@
 part of 'auth_bloc.dart';
 
 class AuthState extends Equatable {
-  final bool isAgree;
   final AuthStatus status;
+  final List<InstructionModel> data = [
+    InstructionModel(title: 'Verify your email address', desctiption: 'This is the bank account we would track and manage your spendings', image: AppVectors.instance.email),
+    InstructionModel(title: 'Connect your bank account', desctiption: 'This is the bank account we would track and manage your spendings', image: AppVectors.instance.bank),
+    InstructionModel(title: 'Setup a security pin', desctiption: 'This is the bank account we would track and manage your spendings', image: AppVectors.instance.lock),
+    InstructionModel(title: 'Tell us more about you', desctiption: 'This is the bank account we would track and manage your spendings', image: AppVectors.instance.user),
+  ];
 
-  const AuthState({required this.status, this.isAgree = false});
+  AuthState({
+    required this.status,
+  }) ;
 
-  AuthState copyWith({AuthStatus? status}) => AuthState(status: status ?? this.status);
+  AuthState copyWith({AuthStatus? status, bool? isAgree}) => AuthState(status: status ?? this.status);
 
   @override
   List<Object> get props => [
         status,
-        isAgree
       ];
 }
 

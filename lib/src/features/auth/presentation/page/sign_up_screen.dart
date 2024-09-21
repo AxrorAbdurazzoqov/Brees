@@ -3,6 +3,7 @@ import 'package:brees/src/core/constants/font_styles/font_style_const.dart';
 import 'package:brees/src/core/extensions/custom_snackbar.dart';
 import 'package:brees/src/core/widgets/custom_elevated_buttom.dart';
 import 'package:brees/src/features/auth/presentation/bloc/bloc/auth_bloc.dart';
+import 'package:brees/src/features/auth/presentation/page/login_screen.dart';
 import 'package:brees/src/features/auth/presentation/page/welcome_screen.dart';
 import 'package:brees/src/features/auth/presentation/widgets/user_agreement_widget.dart';
 import 'package:brees/src/features/auth/presentation/widgets/user_inputs.dart';
@@ -19,21 +20,21 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emilController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        title: Text('Sign Up', style: FontStyleConst.instance.text24px.copyWith(fontWeight: FontWeight.w500)),
-      ),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Padding(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          title: Text('Sign Up', style: FontStyleConst.instance.text24px.copyWith(fontWeight: FontWeight.w500)),
+        ),
+        body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 32),
                   child: UserInputs(
                     nameController: _nameController,
-                    emilController: _emilController,
+                    emilController: _emailController,
                     passwordController: _passwordController,
                   ),
                 ),
@@ -59,6 +60,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomElevatedButton(
+                    title: 'Login',
+                    height: 50,
+                    color: AppColors.instance.blue.withOpacity(0.1).value,
+                    textColor: AppColors.instance.blue.value,
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+                    },
+                  ),
+                  CustomElevatedButton(
                     title: 'Register',
                     height: 62,
                     width: 186,
@@ -67,21 +77,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         context.read<AuthBloc>().add(
                               RegisterEvent(
                                 name: _nameController.text,
-                                email: _emilController.text,
+                                email: _emailController.text,
                                 password: _passwordController.text,
-                                onSuccess: () => Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen(username: _nameController.text))),
-                                onFailure: () => context.showCustomSnackBar(color: AppColors.instance.redAccent, title: 'Failed to create accound'),
+                                onSuccess: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const WelcomeScreen())),
+                                onFailure: () => context.showCustomSnackBar(color: AppColors.instance.redAccent, title: 'Failed to create account'),
                               ),
                             );
                       }
                     },
-                  ),
-                  CustomElevatedButton(
-                    title: 'Login',
-                    height: 50,
-                    color: AppColors.instance.blue.withOpacity(0.1).value,
-                    textColor: AppColors.instance.blue.value,
-                    onPressed: () {},
                   ),
                 ],
               ),

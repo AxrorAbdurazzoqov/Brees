@@ -1,13 +1,13 @@
-import 'package:brees/src/core/constants/font_styles/font_style_const.dart';
-import 'package:brees/src/core/constants/vectors/app_vectors.dart';
-import 'package:brees/src/core/extensions/get_mediaquery_size.dart';
-import 'package:brees/src/core/widgets/custom_elevated_buttom.dart';
-import 'package:brees/src/features/auth/presentation/page/instruction_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:brees/src/core/constants/vectors/app_vectors.dart';
+import 'package:brees/src/core/widgets/custom_elevated_buttom.dart';
+import 'package:brees/src/core/extensions/get_mediaquery_size.dart';
+import 'package:brees/src/core/constants/font_styles/font_style_const.dart';
+import 'package:brees/src/features/auth/presentation/page/instruction_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  final String username;
-  const WelcomeScreen({super.key, required this.username});
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +29,10 @@ class WelcomeScreen extends StatelessWidget {
                 style: FontStyleConst.instance.text32px,
                 children: <InlineSpan>[
                   TextSpan(
-                    text: username,
+                    text: FirebaseAuth.instance.currentUser!.displayName ?? '',
                     style: FontStyleConst.instance.text32px.copyWith(
                       fontWeight: FontWeight.bold,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   TextSpan(

@@ -1,6 +1,7 @@
 import 'package:brees/firebase_options.dart';
 import 'package:brees/src/core/constants/colors/app_colors.dart';
 import 'package:brees/src/features/auth/presentation/bloc/bloc/auth_bloc.dart';
+import 'package:brees/src/features/navbar/presentation/bloc/navbar_bloc.dart';
 import 'package:brees/src/features/onboarding/presentation/bloc/bloc/onboarding_bloc.dart';
 import 'package:brees/src/features/splash/presentation/bloc/bloc/splash_bloc.dart';
 import 'package:brees/src/features/splash/presentation/page/splash_screen.dart';
@@ -21,6 +22,7 @@ void main() async {
         BlocProvider(create: (context) => SplashBloc()),
         BlocProvider(create: (context) => OnboardingBloc()),
         BlocProvider(create: (context) => AuthBloc()),
+        BlocProvider(create: (context) => NavbarBloc()),
       ],
       child: const Brees(),
     ),

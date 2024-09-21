@@ -11,15 +11,18 @@ class UserAgreementWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isAgree = false;
     return Row(
       children: [
         BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
             return Checkbox(
-              value: state.isAgree,
+              value: isAgree,
               side: BorderSide(color: AppColors.instance.blue, width: 2),
               focusColor: AppColors.instance.blue,
               onChanged: (value) {
+                value = value ?? false;
+                isAgree = !isAgree;
                 context.read<AuthBloc>().add(UserAgreementEvent());
               },
             );

@@ -9,11 +9,11 @@ class UserInputs extends StatelessWidget {
     required TextEditingController emilController,
     required TextEditingController passwordController,
   })  : _nameController = nameController,
-        _emilController = emilController,
+        _emailController = emilController,
         _passwordController = passwordController;
 
   final TextEditingController _nameController;
-  final TextEditingController _emilController;
+  final TextEditingController _emailController;
   final TextEditingController _passwordController;
 
   @override
@@ -27,7 +27,7 @@ class UserInputs extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         CustomTextFormField(
-          controller: _emilController,
+          controller: _emailController,
           hinText: 'Email',
           validator: AppValidators.instance.email,
         ),
