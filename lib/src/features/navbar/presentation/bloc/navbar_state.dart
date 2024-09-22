@@ -1,3 +1,4 @@
+import 'package:brees/src/features/home/presentation/page/home_screen.dart';
 import 'package:brees/src/features/profile/profile_screen.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +6,7 @@ import 'package:flutter/material.dart';
 class NavbarState extends Equatable {
   final int currentIndex;
   final List<Widget> screens = [
-    // const HomeScreen(), 
-    Container(color: Colors.blueAccent),
+    const HomeScreen(), 
     Container(color: Colors.blueAccent),
     Container(color: Colors.orangeAccent),
     const ProfileScreen(),

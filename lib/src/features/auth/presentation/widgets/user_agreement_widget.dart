@@ -18,8 +18,8 @@ class UserAgreementWidget extends StatelessWidget {
           builder: (context, state) {
             return Checkbox(
               value: isAgree,
-              side: BorderSide(color: AppColors.instance.blue, width: 2),
-              focusColor: AppColors.instance.blue,
+              side: BorderSide(color: AppColors.instance.primary, width: 2),
+              focusColor: AppColors.instance.primary,
               onChanged: (value) {
                 value = value ?? false;
                 isAgree = !isAgree;
@@ -36,7 +36,7 @@ class UserAgreementWidget extends StatelessWidget {
               children: <TextSpan>[
                 TextSpan(
                   text: 'Terms of Service and Privacy Policy',
-                  style: FontStyleConst.instance.text14px.copyWith(color: AppColors.instance.blue),
+                  style: FontStyleConst.instance.text14px.copyWith(color: AppColors.instance.primary),
                 ),
               ],
             ),

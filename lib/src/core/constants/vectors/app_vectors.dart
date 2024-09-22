@@ -36,5 +36,6 @@ class AppVectors {
   final String tick = 'assets/images/tick.png';
   final String user = 'assets/images/user.png';
   final String pattern = 'assets/images/pattern.png';
-  
+  final String avatar = 'assets/images/avatar.png';
+
 }

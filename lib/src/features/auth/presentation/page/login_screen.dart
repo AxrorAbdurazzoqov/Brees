@@ -71,14 +71,14 @@ class _SignUpScreenState extends State<LoginScreen> {
                   onPressed: () async {
                     if (_emailController.text.isNotEmpty && RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(_emailController.text)) {
                       context.read<AuthBloc>().add(ResetPasswordEvent(email: _emailController.text));
-                      context.showCustomSnackBar(color: AppColors.instance.blue, title: 'Check email to reset your password');
+                      context.showCustomSnackBar(color: AppColors.instance.primary, title: 'Check email to reset your password');
                     } else {
                       context.showCustomSnackBar(color: AppColors.instance.redAccent, title: 'Enter email address');
                     }
                   },
                   child: Text(
                     'Forgot Password?',
-                    style: FontStyleConst.instance.text18px.copyWith(color: AppColors.instance.blue, fontWeight: FontWeight.bold),
+                    style: FontStyleConst.instance.text18px.copyWith(color: AppColors.instance.primary, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -89,8 +89,8 @@ class _SignUpScreenState extends State<LoginScreen> {
                   CustomElevatedButton(
                     title: 'Register',
                     height: 50,
-                    color: AppColors.instance.blue.withOpacity(0.1).value,
-                    textColor: AppColors.instance.blue.value,
+                    color: AppColors.instance.primary.withOpacity(0.1).value,
+                    textColor: AppColors.instance.primary.value,
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpScreen()));
                     },

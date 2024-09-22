@@ -13,7 +13,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.instance.blue,
+      backgroundColor: AppColors.instance.primary,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),

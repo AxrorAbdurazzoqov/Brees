@@ -19,7 +19,7 @@ class Navbar extends StatelessWidget {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: AppColors.instance.white,
+        backgroundColor: AppColors.instance.primary,
         onTap: (index) {
           bloc.add(OnNavbarIndexChangedEvent(index: index));
         },

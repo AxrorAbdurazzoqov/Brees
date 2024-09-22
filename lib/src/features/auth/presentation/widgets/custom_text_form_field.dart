@@ -53,8 +53,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 },
                 icon: SvgPicture.asset(
                   height: 24,
-                  isSecured? AppVectors.instance.eyeOff: AppVectors.instance.eye,
-                  colorFilter: ColorFilter.mode(AppColors.instance.blue, BlendMode.srcIn),
+                  isSecured ? AppVectors.instance.eyeOff : AppVectors.instance.eye,
+                  colorFilter: ColorFilter.mode(AppColors.instance.primary, BlendMode.srcIn),
                 ),
               )
             : null,

@@ -17,7 +17,7 @@ class CustomElevatedButton extends StatelessWidget {
     required this.title,
     required this.height,
     required this.onPressed,
-    this.width = double.infinity, 
+    this.width = double.infinity,
   });
 
   @override
@@ -27,12 +27,12 @@ class CustomElevatedButton extends StatelessWidget {
       style: ButtonStyle(
         fixedSize: WidgetStatePropertyAll(Size(width, height)),
         backgroundColor: WidgetStatePropertyAll(
-          color == null ? AppColors.instance.blue : Color(color!),
+          color == null ? AppColors.instance.primary : Color(color!),
         ),
       ),
       child: Text(
         title,
-        style: FontStyleConst.instance.text18px.copyWith(color: textColor==null? AppColors.instance.white: Color(textColor!)),
+        style: FontStyleConst.instance.text18px.copyWith(color: textColor == null ? AppColors.instance.white : Color(textColor!)),
       ),
     );
   }

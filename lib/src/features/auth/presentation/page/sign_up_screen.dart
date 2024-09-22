@@ -62,8 +62,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   CustomElevatedButton(
                     title: 'Login',
                     height: 50,
-                    color: AppColors.instance.blue.withOpacity(0.1).value,
-                    textColor: AppColors.instance.blue.value,
+                    color: AppColors.instance.primary.withOpacity(0.1).value,
+                    textColor: AppColors.instance.primary.value,
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
                     },
