@@ -34,9 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SingleChildScrollView(
             child: BlocBuilder<HomeBloc, HomeState>(
               builder: (context, state) {
-                final Account data = state.data!.account;
-
                 if (state.status == HomeStatus.success) {
+                  final Account data = state.data!.account;
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -78,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               value: 0.4,
                               onChanged: (val) {},
                             ),
-                            Text('😱  Sapa go soon catch you bros, calm down!!', style: FontStyleConst.instance.whiteText14px.copyWith(fontSize: 11)),
+                            Text('😱  Sapa go soon catch you bros, calm down!', style: FontStyleConst.instance.whiteText14px.copyWith(fontSize: 11)),
                           ],
                         ),
                       ),
