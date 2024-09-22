@@ -2,12 +2,15 @@ import 'package:brees/src/core/constants/colors/app_colors.dart';
 import 'package:brees/src/core/constants/font_styles/font_style_const.dart';
 import 'package:brees/src/core/constants/vectors/app_vectors.dart';
 import 'package:brees/src/core/extensions/get_mediaquery_size.dart';
+import 'package:brees/src/features/home/data/model/data_model.dart';
 import 'package:brees/src/features/home/presentation/widgets/next_widget.dart';
 import 'package:flutter/material.dart';
 
 class BalanceWidget extends StatelessWidget {
+  final Account data;
   const BalanceWidget({
     super.key,
+    required this.data,
   });
 
   @override
@@ -46,11 +49,11 @@ class BalanceWidget extends StatelessWidget {
               style: FontStyleConst.instance.whiteText14px,
               children: <InlineSpan>[
                 TextSpan(
-                  text: 'N20,983\n',
+                  text: '${data.currency}${data.balance}\n',
                   style: FontStyleConst.instance.whiteText32px.copyWith(fontWeight: FontWeight.bold),
                 ),
                 TextSpan(
-                  text: 'By this time last month, you spent\nslightly higher (N22,719)',
+                  text: 'By this time last month, you spent\nslightly higher (${data.currency}${data.balance - data.monthlySpentAmount})',
                   style: FontStyleConst.instance.text14px,
                 ),
               ],
@@ -66,11 +69,11 @@ class BalanceWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Uzum Bank',
+                      data.institutions[index].name,
                       style: FontStyleConst.instance.whiteText14px.copyWith(fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      'N12,000.000',
+                      '${data.currency}${data.institutions[index].amount}',
                       style: FontStyleConst.instance.whiteText14px.copyWith(fontWeight: FontWeight.w600),
                     ),
                   ],

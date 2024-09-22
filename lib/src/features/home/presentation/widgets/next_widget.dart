@@ -14,7 +14,7 @@ class NextWidget extends StatelessWidget {
     return CircleAvatar(
       radius: 15,
       child: IconButton(
-        onPressed: () {},
+        onPressed: onPressed,
         icon: SvgPicture.asset(
           AppVectors.instance.chevronRight,
         ),
